@@ -40,6 +40,7 @@ public class ComplicatedPage {
         String textValueOfNumbers = textOfNumbers.getText();
         System.out.println(textValueOfNumbers);
 
+
         int plusSign = textValueOfNumbers.indexOf("+");
 
         String numOne = textValueOfNumbers.substring(0, plusSign-1);
