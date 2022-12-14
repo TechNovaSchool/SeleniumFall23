@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class Task15 {
     public static void main(String[] args) {
@@ -59,6 +60,16 @@ public class Task15 {
         cityInput.sendKeys(city);
         stateInput.sendKeys(state);
         postalCodeInput.sendKeys(zipCode);
+
+        WebElement countryDropdown = driver.findElement(By.xpath("//select[@name='country']"));
+
+        Select select = new Select(countryDropdown);
+
+//        select.selectByVisibleText("BARBADOS");
+       //select.selectByIndex(2);
+        select.selectByValue("ARUBA");
+
+
 
 
 
