@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class Task15 {
     public static void main(String[] args) {
         Faker faker = new Faker();
@@ -67,7 +69,15 @@ public class Task15 {
 
 //        select.selectByVisibleText("BARBADOS");
        //select.selectByIndex(2);
-        select.selectByValue("ARUBA");
+//        select.selectByValue("ARUBA");
+
+         WebElement firstOption = select.getFirstSelectedOption();
+        System.out.println(firstOption.getText());
+
+        List<WebElement> dropdownOptions = select.getOptions();
+
+
+
 
 
 
