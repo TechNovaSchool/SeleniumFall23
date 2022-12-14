@@ -11,6 +11,9 @@ public class FakerPractice {
         String address = faker.address().fullAddress();
         String msg = faker.lorem().sentence();
 
+        String phoneNumber = faker.phoneNumber().phoneNumber();
+        System.out.println(phoneNumber);
+
         System.out.println(firstName + " " + lastName);
         System.out.println(age);
         System.out.println(address);
