@@ -1,3 +1,5 @@
+package selenium_intro;
+
 import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;

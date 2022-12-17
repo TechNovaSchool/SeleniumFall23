@@ -1,3 +1,5 @@
+package selenium_intro;
+
 import com.github.dockerjava.api.model.Task;
 
 public class Task9 {

@@ -1,3 +1,5 @@
+package selenium_intro;
+
 import com.github.dockerjava.api.model.Task;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
