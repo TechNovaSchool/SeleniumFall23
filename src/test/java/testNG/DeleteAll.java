@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import smartBear.SmartBear;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class DeleteAll {
 
@@ -58,6 +59,7 @@ public class DeleteAll {
         WebElement checkBox = driver.findElement(By.xpath("//table[@class=\"SampleTable\"]/tbody/tr/td[.='" + givenName + "']/../td[1]"));
         checkBox.click();
 
+
         WebElement deleteBtn = driver.findElement(By.cssSelector("input[id*=\"btnDelete\"]"));
         deleteBtn.click();
         List<WebElement> allNames = driver.findElements(By.xpath("//table[@class=\"SampleTable\"]/tbody/tr/td[2]"));
@@ -69,7 +71,7 @@ public class DeleteAll {
 
     @AfterClass
     public void tearDown() {
-//        driver.quit();
+       driver.quit();
     }
 
 }

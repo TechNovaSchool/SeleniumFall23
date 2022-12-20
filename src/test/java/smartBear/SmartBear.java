@@ -50,4 +50,31 @@ public class SmartBear {
         password.sendKeys("test");
         loginBtn.click();
     }
+
+    public static void verifyOrder(WebDriver driver, String givenName){
+        List<WebElement> allNames = driver.findElements(By.xpath("//table[@class=\"SampleTable\"]/tbody/tr/td[2]"));
+
+        for(WebElement name: allNames) {
+            if(name.getText().equals(givenName)){
+                System.out.println(givenName + " exist in the list");
+            } else {
+                System.out.println("The name is not in the list");
+            }
+            return;
+        }
+    }
+
+    public static void printNamesAndCities(WebDriver driver) {
+        List<WebElement> allNames = driver.findElements(By.xpath("//table[@class=\"SampleTable\"]/tbody/tr/td[2]"));
+        List<WebElement> cityNames = driver.findElements(By.xpath("//table[@class=\"SampleTable\"]/tbody/tr/td[7]"));
+
+        for(int i = 0; i<cityNames.size(); i++) {
+            System.out.println(allNames.get(i).getText() + " lives in " + cityNames.get(i).getText());
+
+        }
+
+    }
+
+
+
 }
