@@ -511,14 +511,62 @@ default priority = 0.
 Dependencies --> allows to create a test dependent on another test
 ---------------
 
-Dependencies talkes precedence over priorities
+Dependencies takes precedence over priorities
 dependsOnMethods =" methodName" aka test name
 -----------------------------
+12.20.22
+Iframes 
+--> Inline Frame
+Whenever there is an iframe present in the page source (we can find it using //iframe),
+in order to perform actions with elements inside of the iframe we need to 
+switch focus of the driver.
+Selenium can not work on two different frames at the same time
+-----
+If we try to locate an element inside of the iframe before switching we will get error
+NoSuchElementException
+
+To handle an iframe we need to use : driver.switch().frame(webElement of the iframe)
+--------
+How to locate an iframe could be done as regular webelement
+But we also can use indexes 
+ex: driver.switch().frame(0)
+Or we can use frameID --> ex: driver.switch().frame("idvalue")
+--------
+Once we are done with actions for iframe elements, we need to switch to main/parent HTML
+
+To switch to parent: driver.switch().parent()---> will focus to parent frame
+To switch to default/ main: driver.switch().defaultContent() --> will focus on default frame
 
 
+1 -->HTML -- default
+2    --> HTML
+3       -->HTML
+----------------
+Windows/tabs
+Selenium doesn't see the different between new window or new tab, so is being handled in same way.
+Driver can focus only at one window at the moment, in order to change focus we need to get
+the address of the current windows : driver.getWindowHandle()--> return a unique string
+that is a window address
 
+In order to switch windows/tab we need to use for loop, and create a logic.
+driver.getWindowHandles()---> will return the list of all open tabs/windows.
 
-
+for(String window: driver.getWindowHandles()){
+if(!window.equals(mainWindow)){
+driver.switchTo().window(window);
+}
+}
+-------------------
+Soft assertion
+In this assertion we can allow the assertion to fail and test to continue.
+Soft assertion will not stop the execution of the code (test). And we can verify soft 
+assertions separately. 
+We need to create an object : SoftAssert obj = new SoftAssert();
+In order to verify the results of the assertion 
+we need to use a method -->
+softAssert.assertAll();
+-------
+Soft assertion can be used for small cosmetic details on the test flow.
 
 
 
