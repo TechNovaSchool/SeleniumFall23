@@ -569,12 +569,61 @@ softAssert.assertAll();
 Soft assertion can be used for small cosmetic details on the test flow.
 
 
+---------------
+Iframes
 
+- What is an iframe?
+- Inline frame,  HTML--> HTML
+- How to handle iframes ?
+- We need to switch to the iframe which contains elements we want to interact with.
+  - driver.switch().frame("index")-->
+  - driver.switch().frame("id")
+  -driver.switch().frame(webelement)
+  
+- How to switch back to the main frame?
+- driver.switch().parentFrame();--> the previous frame
+- driver.switch().defaultFrame(): --> the main frame(HTML)
 
+Soft assertion
 
+- What is a soft assertion ?
+- It's a type of assertion that allows test to continue even when it fails
+- How to identify the failures?
+- softAssert.assertAll() --> will display the failed test 
 
+When we can use soft assertion ?
+It allows to run a test until the end of it, usually we can put "secondary importance"
+things to assert.
 
+Windows/Tabs
 
+- Selenium doesn't see the difference between tab/ or windows
+- To identify and switch tabs we can use for loop, since selenium doesn't
+have a special class to handle it
+- driver.getWindowHandle() --> returns a string value of tab 
+- driver.getWindowHandles() --> returns a Set of string
+--------------
+12.21.22
+
+Configuration Properties 
+This is a separate file.
+Why do we need to use that file ?
+--> it a place to configure the project
+--> can can do configuration of the env; browser;
+--> to save the secure information like login/ password
+
+---------
+1) Create a path to file ---> telling the system where file is located
+2) Properties object
+3) Open the using FileInputStream
+4) Loading properties file into properties object
+5) Read this file using getProperty() method
+-----------
+What the driver utility does ?
+- It helps to write less repeatable code
+- It is using singelton design pattern for driver in order to create only one
+- instance at the time 
+- it also allows easy/ dynamic way to switch between browser using configuration file.
 
 
 
