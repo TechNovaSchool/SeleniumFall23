@@ -419,7 +419,7 @@ Java
 How we automated test cases?
 
 1. We created a class
-   We created a logic, we used webdrivermanage, we also instantiate an object for browser in the class/ method
+   We created a logic, we used webdrivermanager, we also instantiate an object for browser in the class/ method
 
 
 2. How we did verify if the test pass or not
@@ -624,6 +624,105 @@ What the driver utility does ?
 - It is using singelton design pattern for driver in order to create only one
 - instance at the time 
 - it also allows easy/ dynamic way to switch between browser using configuration file.
+
+------------
+01.03.23
+Recap 
+
+Locators :
+8 locators: linkText(), name, className, id, tagName, partialLinkedText, css, xpath.
+
+css- element[attribute]
+
+xpath- 
+--> absolute (single /)
+--> relative (double //)
+to locate a text //div[.="myText"]
+<---->
+
+What is testNG?
+--> Unit testing framework
+We use annotations to create test: 
+@BeforeClass/ @AfterClass
+@BeforeMethod/ @AfterMethod
+@Test
+----
+Assertions
+--> Allows to verify actual value against expected one.
+Assertion will pass or the fail the test.
+
+SoftAssertion --> it will skip a assertion that failed
+
+Assertion regular it will stop running the code if it fails
+----------------------------
+
+@Ignore --> will skip a test from running
+we also can skip it using comment //
+
+Priority we can set when the test is created, and this will provide an order for running the test
+
+Dependencies --> when we have a test that depends on another one 
+-------------
+
+Alerts 
+We have 2 types of alerts
+--> HTML alert --> it alert handled as a regular webElement
+--> JSAlert --> We need to create an Alert object to use it
+        --> 1 Warning --> we only accept it
+        --> 2 Confirmation --> we can accept or decline
+        --> 3 Prompt --> we can accept, decline and input text
+
+Alert alerts = new Alert();
+----------------
+
+Iframes --> it is an HTML inside of another HTML
+
+The webDriver can not focus on 2 frames (HTMLs) at the same time
+a)
+  1) We need to locate the iframe as regular webelement
+  2) driver.switchTo().frame(weblement)
+b)
+byId value if the iframe has an id attribute 
+c)
+by Index(0)
+
+---------
+How to switch back to main frame --> switch default content --> it will navigate to main frame
+
+How to switch to previous frame --> switch to parent 
+
+-----------
+  Windows/Tabs
+How to handle a separate tabs?
+We can use window handle 
+We also to need create logic (loop) to switch the window
+-----------
+
+POM --> Page Object Model
+POM --> is not a framework but is a design pattern 
+ In a page object model we create a separate page for weblements, and store them inside
+of that page
+
+In order to make them accessible from different classes we need to use:
+a constructor
+public className() {
+PageFactory.initElements(Driver.getDriver(), this);
+}
+
+initElements --> creates connection between current java classes and webdriver
+
+@FindBy --> annotation that comes from Selenium
+It helps to locate webelements
+
+@FindBy (id = "ctl00_MainContent_username")
+public WebElement username;
+
+------
+What to remember about POM?
+--> We create separate class for each page of the application
+--> we can store all webelements and its related methods in that class
+--> To use the webelements we need to create a object from that page
+
 
 
 
