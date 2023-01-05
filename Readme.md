@@ -722,9 +722,48 @@ What to remember about POM?
 --> We create separate class for each page of the application
 --> we can store all webelements and its related methods in that class
 --> To use the webelements we need to create a object from that page
+---------------------
 
+01.04.2023
 
+Synchronization 
 
+We need to align the webdriver with the flow of the page, when we have multiple moving elements,
+or elements which will take time to load/ appear on the page
+
+Because the webdriver is fast we need to slow it down in some cases
+The webelements might be visible only a particular time 
+----
+How to handle it?
+We can use:
+
+Thread.sleep()--> IS NOT recommended. This is a java class that will stop the full program from running
+
+ExplicitWait --> we can add an explicit condition the webelment to be visible/ or clickable 
+
+In order to use explicit wait  we need to create an object from WebDriverWait
+-------
+
+When we have elements that appear when we do hover over and then disappear after the
+mouse is moved is hard to get the locator for a particular element.
+We open dev tool --> Sources ---> search for pause sign (left side), use keyboard to click on it.
+MAC --> CMD+\
+That will stop UI from moving until you click back on play button.
+
+Action Class:
+
+Actions Class comes from Selenium library 
+And it allows handling actions such:
+1. moveToElement
+2. doubleClick
+3. contextClick
+4. dragAndDrop
+
+Actions actions = new Actions(Driver.getDriver()); The object takes a driver a param
+
+actions.moveToElement(hoversOverPage.avatar1).perform()
+actions.moveToElement(hoversOverPage.avatar1).build().perform()
+.perform() is required at the end of each action from action class
 
 
 
